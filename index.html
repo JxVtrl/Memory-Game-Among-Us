@@ -4,30 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/styles/among.css">
+    <link rel="stylesheet" href="/public/styles/style.css">
+    
     <title>Among Us - Memory Game</title>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-
+                <li><h1>Among Memory</h1></li>
+                <li><h1>Points: <span id="points"></span></h1></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
+    <h1 id="title">START REACTOR</h1>
 
+    <main class="container">
+        <section class="painel">
+                <div class="boxPainel">
+                    <div class="computerLedPanel">
+                    <div class="led lvl1"></div>
+                    <div class="led lvl2"></div>
+                    <div class="led lvl3"></div>
+                    <div class="led lvl4"></div>
+                    <div class="led lvl5"></div>
+                </div>
+                <div class="painelMemory">
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+                    <div class="memory"></div>
+
+                    <div class="btns">
+                        <h1 id="loadButton">LOAD</h1>
+                        <h1 id="startButton" style="display: none">PLAY</h1>
+                    </div>
+                </div>
+            </div>
+            
         </section>
-        <section>
 
+        <!-- Player Panel -->
+        <section class="painel">
+                <div class="boxPainel">
+                    <div class="playerLedPanel">
+                    <div class="led lvl1.1"></div>
+                    <div class="led lvl2.1"></div>
+                    <div class="led lvl3.1"></div>
+                    <div class="led lvl4.1"></div>
+                    <div class="led lvl5.1"></div>
+                </div>
+                <div class="playerMemory">
+                    <div data-memory='0' class="player_memory"></div>
+                    <div data-memory='1' class="player_memory"></div>
+                    <div data-memory='2' class="player_memory"></div>
+                    <div data-memory='3' class="player_memory"></div>
+                    <div data-memory='4' class="player_memory"></div>
+                    <div data-memory='5' class="player_memory"></div>
+                    <div data-memory='6' class="player_memory last"></div>
+                    <div data-memory='7' class="player_memory last"></div>
+                    <div data-memory='8' class="player_memory last"></div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer><h3>Feito por @JxVtrl</h3></footer>
+    <!-- Among Rotating -->
+    <div class="size">
+      <div class="player">
+        <div class="legs"></div>
+        <div class="back"></div>
+        <div class="glass"></div>
+      </div>
+    </div>
+
+    <footer><p>Feito por @JxVtrl</p></footer>
+
 
     
+    <script>
+        const loadButton = document.getElementById("loadButton")
+        const startButton = document.getElementById("startButton")
+        
+        loadButton.addEventListener("click", () => {
+            startReactor.load()
+            loadButton.style.display = "none"
+            startButton.style.display = ""
+        })
+        
+        startButton.addEventListener("click", () => {
+            startReactor.start()
+            startButton.style.display = "none"
+        })
+    </script>
+
     <script src="public/js/script.js"></script>
 </body>
 </html>
